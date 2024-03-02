@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "spectrum-rgb"
+version = "0.1.0"
+description = ""
+authors = ["mbw <matthew@mh-white.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "spectrum_rgb"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+numpy = "^1.26.4"
+fastapi = "^0.109.2"
+pydantic = "^2.6.1"
+scipy = {extras = ["constants"], version = "^1.12.0"}
+hypercorn = "^0.16.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
