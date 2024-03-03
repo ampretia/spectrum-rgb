@@ -1,5 +1,6 @@
-FROM python:3.11-buster as builder
+FROM python:3.10-buster as builder
 
+RUN pip install --upgrade pip
 RUN pip install poetry==1.8.1
 
 ENV POETRY_NO_INTERACTION=1 \
@@ -14,7 +15,7 @@ RUN touch README.md
 
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --no-root
 
-FROM python:3.11-slim-buster as runtime
+FROM python:3.11-slim-bullseye as runtime
 
 ENV VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
